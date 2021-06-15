@@ -1,8 +1,9 @@
 from tkinter import *
-import rsaidnumber
-from datetime import date, datetime
+from datetime import datetime, date
 from tkinter import messagebox
 from playsound import playsound
+import random
+import re
 
 root = Tk()
 root.title("Registration")
@@ -39,10 +40,49 @@ email_entry = Entry(width=20)
 email_entry.config(bg="White", fg="Dark Blue", font=10)
 email_entry.place(x=700, y=300)
 
+player_id = random.randint(100000, 999999)
+regex = '[A]@ .'
+now = datetime.now()
+today = date.today()
+
 
 def validation():
-    root.destroy()
-    import play
+    w = open("Details.txt", "a+")
+    w.write(name_entry.get() + " " + " " + email_entry.get() + " " + " " + id_entry.get() + " " + " " +
+            "Logged into App at: " + str(now) + "\n")
+    w.close()
+
+    id_num = id_entry.get()
+    if len(id_entry.get()) > 13 or len(id_entry.get()) < 13:
+        messagebox.showerror("ERROR!", "Must Consist of 13 Numbers")
+    elif not id_num.isdigit():
+        messagebox.showerror("ERROR!", "Please Enter a Number!")
+
+    email = email_entry.get()
+    if re.search(regex, email):
+        pass
+        # messagebox.showinfo("SUCCESS!", "Valid Email Address")
+    else:
+        pass
+        # messagebox.showerror("ERROR!", "Invalid Email Address")
+
+    year = id_num[:2]
+    if year >= "22":
+        year = "19" + year
+    else:
+        year = "20" + year
+    month = id_num[2:4]
+    day = id_num[4:6]
+    dob = year, month, day
+    age = today.year - int(year) - ((today.month, today.day) < (int(month), int(day)))
+    if age >= 18:
+        messagebox.showinfo("AGE", "You Qualify To Play")
+        messagebox.showinfo("Play", "Lets Play!")
+        root.destroy()
+        import play
+    else:
+        messagebox.showerror("AGE", "Come Back When You Are Old Enough")
+        root.destroy()
 
 
 def clear():  # Clears all user changed values
@@ -61,7 +101,7 @@ def kill():
 validate_button = Button(text="Validate", width=10, bg="red", fg="white", highlightthickness=0, command=validation)
 validate_button.place(x=350, y=500)
 
-clear_button = Button(text="Clear", width=10, bg="red", fg="white", highlightthickness=0, command=clear)
+clear_button = Button(text="Clear", width=10, bg="#0357d8", fg="white", highlightthickness=0, command=clear)
 clear_button.place(x=550, y=500)
 
 kill_btn = Button(text="Exit", bg="#0357d8", fg="white", highlightthickness=0, command=kill)
