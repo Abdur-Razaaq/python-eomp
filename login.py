@@ -3,6 +3,7 @@ from datetime import datetime, date
 from tkinter import messagebox
 from playsound import playsound
 import random
+import email_validator
 import re
 
 root = Tk()
