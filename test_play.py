@@ -1,3 +1,4 @@
+# test file for play
 # importing modules needed from tkinter
 from tkinter import *
 from PIL import Image, ImageTk
@@ -19,7 +20,7 @@ image_label.place(x=240, y=-55)
 
 # creates function that reads user entered values, generates lotto numbers, matches them, displays winnings and allows
 # user to claim  if they win
-def play():
+def test_play():
     numbers = list(range(1, 49))
     random.shuffle(numbers)
     draw = numbers[:6]
@@ -73,7 +74,7 @@ def play():
         if "yes":
             playsound("move.mp3")
             root.destroy()
-            import banking
+            import test_banking
     elif results == 3:
         playsound("winner.mp3")
         messagebox.showinfo("LUCKY", "You Have Won R100.50")
@@ -84,7 +85,7 @@ def play():
         if "yes":
             playsound("move.mp3")
             root.destroy()
-            import banking
+            import test_banking
     elif results == 4:
         playsound("winner.mp3")
         messagebox.showinfo("LUCKY", "You Have Won R2384.00")
@@ -95,7 +96,7 @@ def play():
         if "yes":
             playsound("move.mp3")
             root.destroy()
-            import banking
+            import test_banking
     elif results == 5:
         playsound("winner.mp3")
         messagebox.showinfo("LUCKY", "You Have Won R8584.00")
@@ -106,7 +107,7 @@ def play():
         if "yes":
             playsound("move.mp3")
             root.destroy()
-            import banking
+            import test_banking
     else:
         playsound("win.mp3")
         messagebox.showinfo("JACKPOT", "YOU HAVE WON THE JACKPOT")
@@ -117,10 +118,10 @@ def play():
         w.close()
         if "yes":
             root.destroy()
-            import banking
+            import test_banking
 
 
-def clear():  # Clears all user changed values
+def test_clear():  # Clears all user changed values
     spin1.delete(0, END)
     spin2.delete(0, END)
     spin3.delete(0, END)
@@ -211,17 +212,17 @@ lot6.place(x=830, y=450)
 
 # Buttons. Placing and configuring
 
-play_btn = Button(text="Play", width=15, command=play)
+play_btn = Button(text="Play", width=15, command=test_play)
 play_btn.config(bg="red", fg="white", font="roboto", highlightthickness=0)
 play_btn.place(x=220, y=550)
 
 clear_btn = Button(text="Clear", width=15)
-clear_btn.config(bg="red", fg="white", font="roboto", highlightthickness=0, command=clear)
+clear_btn.config(bg="red", fg="white", font="roboto", highlightthickness=0, command=test_clear)
 clear_btn.place(x=580, y=550)
 
 
 # kill function
-def kill():
+def test_kill():
     playsound("exit.mp3")
     message = messagebox.askquestion("Exit Application", "Are You Sure You Want To Exit?")
     if message == "yes":
@@ -229,7 +230,7 @@ def kill():
 
 
 # kill button
-kill_btn = Button(text="Exit", bg="#0357d8", fg="white", highlightthickness=0, command=kill)
+kill_btn = Button(text="Exit", bg="#0357d8", fg="white", highlightthickness=0, command=test_kill)
 kill_btn.place(x=900, y=630)
 
 # ensuring that window stays open until user closes it

@@ -1,3 +1,4 @@
+# creating test for currency convertor
 # importing modules needed from tkinter
 from tkinter import *
 from tkinter import messagebox
@@ -58,7 +59,7 @@ for i in conversion_rate.keys():
 
 
 # Defining Currency Conversion
-def convert_currency():
+def test_convert_currency():
     playsound("move.mp3")
     num = float(winnings.get())
     print(info_json['conversion_rates'][con_list.get(ACTIVE)])
@@ -67,13 +68,13 @@ def convert_currency():
 
 
 # Currency Conversion Button
-con_btn = Button(root, command=convert_currency, text="Convert", width=20)
+con_btn = Button(root, command=test_convert_currency, text="Convert", width=20)
 con_btn.config(bg="Red", fg="white")
 con_btn.place(x=410, y=650)
 
 
 # exit function
-def kill():
+def test_kill():
     playsound("exit.mp3")
     message = messagebox.askquestion("Exit Application", "Are You Sure You Want To Exit?")
     if message == "yes":
@@ -81,7 +82,7 @@ def kill():
 
 
 # exit button
-kill_btn = Button(text="Exit", bg="#0357d8", fg="white", highlightthickness=0, command=kill)
+kill_btn = Button(text="Exit", bg="#0357d8", fg="white", highlightthickness=0, command=test_kill)
 kill_btn.place(x=900, y=630)
 
 # ensures that window stays open until user exits it

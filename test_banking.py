@@ -1,3 +1,4 @@
+# creating test for banking
 # importing modules needed from tkinter
 from tkinter import *
 from playsound import playsound
@@ -14,7 +15,7 @@ root.geometry("1000x700")
 
 
 # crating function
-def bank():  # creates function that verifies entries and sends email
+def test_bank():  # creates function that verifies entries and sends email
     acc_name = AccH_entry.get()
     acc_number = AccN_entry.get()
     bank_type = bank_select.get()
@@ -68,7 +69,7 @@ def bank():  # creates function that verifies entries and sends email
         if msg_box == "yes":
             playsound("move.mp3")
             root.destroy()
-            import currency_convertor
+            import test_currency_convertor
         else:
             playsound("move.mp3")
             e_msg = messagebox.showinfo("GoodBye!", "Thank You For Playing!")
@@ -116,13 +117,13 @@ AccN_entry.config(bg="White", fg="Dark Blue", font="roboto", highlightthickness=
 AccN_entry.place(x=600, y=400)
 
 # transfer button
-transfer_btn = Button(text="Transfer Cash", width=10, command=bank)
+transfer_btn = Button(text="Transfer Cash", width=10, command=test_bank)
 transfer_btn.config(bg="red", fg="white", highlightthickness=0)
 transfer_btn.place(x=600, y=600)
 
 
 # function for exit button
-def kill():
+def test_kill():
     playsound("exit.mp3")
     message = messagebox.askquestion("Exit Application", "Are You Sure You Want To Exit?")
     if message == "yes":
@@ -130,7 +131,7 @@ def kill():
 
 
 # exit button
-kill_btn = Button(text="Exit", bg="#0357d8", fg="white", highlightthickness=0, command=kill)
+kill_btn = Button(text="Exit", bg="#0357d8", fg="white", highlightthickness=0, command=test_kill)
 kill_btn.place(x=900, y=630)
 
 # ensures that window stays open until user exits it

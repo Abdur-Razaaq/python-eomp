@@ -1,3 +1,4 @@
+# test file for main
 # importing modules needed from tkinter
 from tkinter import *
 from PIL import Image, ImageTk
@@ -21,18 +22,19 @@ class Open:
     def __init__(self, window):  # initialising the object
         # creating, placing and configuring start button
         self.start_btn = Button(window, text="It's Lotto Time", bg="red", width=30, fg="white", highlightthickness=0,
-                                command=self.start)
+                                command=self.test_start)
         self.start_btn.place(x=380, y=500)
         # creating, placing and configuring exit button
-        self.kill_btn = Button(window, text="Exit", bg="#0357d8", fg="white", highlightthickness=0, command=self.kill)
+        self.kill_btn = Button(window, text="Exit", bg="#0357d8", fg="white", highlightthickness=0,
+                               command=self.test_kill)
         self.kill_btn.place(x=900, y=630)
 
-    def start(self):  # creating function for start button
+    def test_start(self):  # creating function for start button
         playsound("click.mp3")
         root.destroy()
-        import login
+        import test_login
 
-    def kill(self):  # creating function for kill button
+    def test_kill(self):  # creating function for kill button
         playsound("exit.mp3")
         message = messagebox.askquestion("Exit Application", "Are You Sure You Want To Exit?")
         if message == "yes":

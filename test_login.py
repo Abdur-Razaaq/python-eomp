@@ -1,3 +1,4 @@
+# test file for login
 # importing modules needed from tkinter
 from tkinter import *
 from datetime import datetime, date
@@ -59,7 +60,7 @@ now = datetime.now()
 today = date.today()
 
 
-def validation():  # creating function for entry verification
+def test_validation():  # creating function for entry verification
     try:
         id_num = id_entry.get()  # making id entry id_num
         # Ensuring that id number is 13 numbers as per standard
@@ -74,7 +75,7 @@ def validation():  # creating function for entry verification
         else:
             messagebox.showerror("ERROR!", "Invalid Email Address")  # Error trapping
             root.destroy()
-            import main
+            import test_main
 
         # extracting birthdate from id number
         year = id_num[:2]
@@ -95,22 +96,22 @@ def validation():  # creating function for entry verification
                     + id_entry.get() + "\n" + "Logged into App at: " + str(now) + "\n" + "Player ID: " + str(player_id)
                     + "\n" + "DOB: " + str(dob) + "\n")
             w.close()
-        else:  # returns to main if user is underage
+        else:  # returns to main menu if user is underage
             messagebox.showerror("AGE", "Come Back When You Are Old Enough")
             root.destroy()
-            import main
+            import test_main
     finally:  # opens next window if requirements are met
         root.destroy()
-        import play
+        import test_play
 
 
-def clear():  # Clears all user changed values
+def test_clear():  # Clears all user changed values
     name_entry.delete(0, END)
     id_entry.delete(0, END)
     email_entry.delete(0, END)
 
 
-def kill():  # function that closes  window
+def test_kill():  # function that closes  window
     playsound("exit.mp3")
     message = messagebox.askquestion("Exit Application", "Are You Sure You Want To Exit?")
     if message == "yes":
@@ -118,15 +119,15 @@ def kill():  # function that closes  window
 
 
 # creating and placing validate button
-validate_button = Button(text="Validate", width=10, bg="red", fg="white", highlightthickness=0, command=validation)
+validate_button = Button(text="Validate", width=10, bg="red", fg="white", highlightthickness=0, command=test_validation)
 validate_button.place(x=350, y=500)
 
 # creating and placing clear button
-clear_button = Button(text="Clear", width=10, bg="#0357d8", fg="white", highlightthickness=0, command=clear)
+clear_button = Button(text="Clear", width=10, bg="#0357d8", fg="white", highlightthickness=0, command=test_clear)
 clear_button.place(x=550, y=500)
 
 # creating and placing exit button
-kill_btn = Button(text="Exit", bg="#0357d8", fg="white", highlightthickness=0, command=kill)
+kill_btn = Button(text="Exit", bg="#0357d8", fg="white", highlightthickness=0, command=test_kill)
 kill_btn.place(x=900, y=630)
 
 # ensuring that window stay open until closed by user
